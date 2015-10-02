@@ -1,0 +1,299 @@
+#==============================O==============================#
+# I---------------------------------------------------------I #
+# |    Advanced Achievements 2.0 configuration - Readme     | #
+# 1---------------------------------------------------------1 #
+#==============================o==============================#
+
+
+#Rinomina questo file "config" e inseriscilo nella cartella del plugin
+
+
+# You can use Minecraft chat colours in messages and names, but include ' ' around the text.
+# If you want to use a ' in a text, write two ' instead, and include additional ' ' around the whole text.
+# In command rewards, PLAYER designates the name of the player who just got the achievement.
+# Only spaces, no tabs. Don't forget the indents, plugin won't work otherwise! 
+# To check your file, use: yaml-online-parser.appspot.com
+# Available mobs for the Kills section: hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html
+# Available items for rewards/Crafts/Places/Breaks: hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+# Original file: dev.bukkit.org/bukkit-plugins/advanced-achievements/pages/configuration/
+
+#=============================O=O=============================#
+# II-------------------------------------------------------II #
+# |                    General  settings                    | #
+# 2---------------------------------------------------------2 #
+#=============================o=o=============================#
+
+# Time in seconds between each /aach book.
+Time: 900
+
+# Check for update on plugin launch and notify when an OP joins the game.
+CheckForUpdate: true
+
+# Set to true to activate firework effects when a player receives an achievement.
+Firework: true
+
+# Set to true to activate sound effect when a player receives his book.
+Sound: true
+
+# Set to true if you are using a version of Vault prior to 1.4.
+RetroVault: false
+
+# Set the icon of the plugin (default: shamrock, "\u2618").
+Icon: "\u2618"
+
+# Notify other connected players when an achievement is received.
+ChatNotify: false
+
+# Separator between name, description and date on a book page.
+BookSeparator: ''
+
+# Display 'command-reward' message when a command reward is set for an achievement.
+RewardCommandNotif: true
+
+# Make a daily backup of your local database.
+DatabaseBackup: true
+
+# Stop stats from increasing when player in creative mode (except Connections and PlayedTime).
+RestrictCreative: false
+
+# Stop stats from increasing when player in a specific world (delete the [] before using).
+ExcludedWorlds: []
+#  - yourWorld1
+#  - yourWorld2
+
+# Number of players displayed on /aach top command.
+TopList: 5
+
+#=============================OOO=============================#
+# III-----------------------------------------------------III #
+# |                    Database settings                    | #
+# 3---------------------------------------------------------3 #
+#=============================ooo=============================#
+
+# DO NOT CHANGE OR DELETE.
+DatabaseVersion: 5
+
+# Database type, sqlite or mysql.
+DatabaseType: sqlite
+
+# Settings to link with MySQL database (ignore if sqlite).
+MYSQL:
+  Database: 'jdbc:mysql://localhost:3306/minecraft'
+  User: root
+  Password: root
+
+#============================OO=OO============================#
+# IV-------------------------------------------------------IV #
+# |                  Action  achievements                   | #
+# 4---------------------------------------------------------4 #
+#============================oo=oo============================#
+
+# When a player connects during the day.
+Connections:
+  '1':
+    Message: Ti sei connesso al server per la prima volta!
+    Name: Ottima Scelta
+
+# When a specific block is placed (specify block name, lower case).
+Places:
+  stone:
+    '100':
+      Message: '&4Cento pietre piazzate!'
+      Name: Maniaco della Pietra
+    '1000':
+      Message: '&4Mille pietre piazzate!'
+      Name: Dio della Pietra
+      
+# When a specific block is broken (specify block name, lower case).
+Breaks:
+  stone:
+    '1':
+      Message: '&1La tua prima volta in miniera!'
+      Name: Ciottolo!
+      Reward:
+        Command: give PLAYER 158 10
+  log:
+    '100':
+      Message: '&2Hai tagliato 100 Ceppi!'
+      Name: Taglialegna
+              
+# When a specific mob is killed (specify mob name or 'player', lower case).
+Kills:
+  zombie:
+    '1':
+      Message: '&8La prima volta che uccidi uno zombie!'
+      Name: The Walking Dead
+      Reward:
+        Money: 1         
+        Item: diamond 1
+          
+# When a specific item is crafted (specify item name, lower case).
+Crafts:
+  diamond_sword:
+    '1':
+      Message: La prima volta che lavori una spada!
+      Name: Apprendista Fabbro
+      Reward:
+        Money: 2
+      
+# When the player dies.
+Deaths:
+  '1':
+    Message: La prima volta che muori!
+    Name: Riposa in Pace
+    
+# When an arrow is shot.
+Arrows:
+  '50':
+    Message: '50 frecce lanciate!'
+    Name: Frecce Ovunque
+    
+# When a snowball is thrown.  
+Snowballs:
+  '1000':
+    Message: '1000 palle di neve lanciate. È questo lo spirito!'
+    Name: Inverno-dipendente 
+    
+# When an egg is thrown.  
+Eggs:
+  '1000':
+    Message: '1000 uova lanciate!'
+    Name: Maniaco delle Omelette 
+    
+# When a fish is caught. 
+Fish:
+  '1':
+    Message: La prima volta che prendi un pesce!
+    Name: È ora di Fish and Chips
+
+# When a tool/armor/weapon is broken.  
+ItemBreaks:
+  '1':
+    Message: Hai rotto il tuo attrezzo preferito!
+    Name: '&4Bimbo Goffo'
+
+# When an item is eaten.  
+EatenItems:
+  '1':
+    Message: Hai mangiato il tuo primo spuntino!
+    Name: Primo Spuntino 
+    
+# When a sheep is sheared.
+Shear:
+  '100':
+    Message: 100 pecore tosate!
+    Name: '&1Maniaco della Lana'
+    
+# When a cow is milked.
+Milk:
+  '1':
+    Message: Hai appena munto per la prima volta una mucca!
+    Name: Primo Latte    
+    
+# When a trade with a villager is made.
+Trades:
+  '1':
+    Message: Il tuo primo scambio commerciale con un paesano!
+    Name: Primo Baratto 
+    
+# When an anvil is used.
+AnvilsUsed:
+  '1':
+    Message: Hai appena riparato un oggetto per la prima volta!
+    Name: Prima Riparazione
+    
+# When an anvil is used.
+Enchantments:
+  '5':
+    Message: 5 oggetti incantati!
+    Name: '&5Mago'
+    
+# When a bed is entered. 
+Beds:  
+  '5':
+    Message: Sei andato a letto 5 volte!
+    Name: Dormiglione 
+    
+# Maximum level reached.    
+MaxLevel:  
+  '10':
+    Message: Livello 10 raggiunto!
+    Name: '&Recluta'  
+    
+# When a potion is consumed.
+ConsumedPotions:
+  '100':
+    Message: Sempre a bere cose strane...
+    Name: Alcolizzato 
+    
+# Amount of time played on the server (in hours, use integers).
+PlayedTime:
+  '1':
+    Message: Hai giocato sul server per un'ora!
+    Name: Prima Ora
+    
+# When a distance is travelled by foot.
+DistanceFoot:
+  '1000':
+    Message: Hai percorso 1000 blocchi a piedi!
+    Name: Grande Camminatore
+    
+# When a distance is travelled on a pig.
+DistancePig:
+  '100':
+    Message: Hai percorso 100 blocchi su un maiale!
+    Name: Maestro della Carota sul Bastone
+    
+# When a distance is travelled on a horse.
+DistanceHorse:
+  '500':
+    Message: Hai percorso 500 blocchi su un cavallo!
+    Name: The Avener
+    
+# When a distance is travelled in a minecart.
+DistanceMinecart:
+  '100':
+    Message: Hai percorso 100 blocchi in un minecart!
+    Name: Appassionato di Kart
+    
+# When a distance is travelled in a boat.
+DistanceBoat:
+  '200':
+    Message: Hai percorso 200 blocchi in una barca!
+    Name: Gran Marinaio
+    
+# When an item is dropped on the ground.
+ItemDrops:
+  '15':
+    Message: Stai uccidendo il pianeta!
+    Name: Inquinatore
+    
+# When soil is plowed with a hoe.
+HoePlowings:
+  '10':
+    Message: Hai arato il terreno 10 volte!
+    Name: Contadino
+    Reward:                 
+        Item: cocoa 15
+    
+# When bone meal is used to fertilise plants.
+Fertilising:
+  '15':
+    Message: Hai fertilizzato il terreno 15 volte con la farina d'ossa!
+    Name: Giardiniere
+    
+#============================OOOOO============================#
+# V---------------------------------------------------------V #
+# |                  Command achievements                   | #
+# 5--------------------------ooooo--------------------------5 #
+#============================ooooo============================#
+    
+# Let achievement commands be given several times.
+MultiCommand: true
+    
+# A player with achievement.give (or the console) can use the /aach give yourAch1 playerName 
+# to give yourAch1 achievement to playerName.
+Commands:
+  yourAch1:
+    Message: Hai preso parte all'evento speciale!
+    Name: Obiettivo Evento Speciale!
